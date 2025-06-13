@@ -11,6 +11,10 @@ module "vpc" {
   pri_sub_6b_cidr = var.pri_sub_6b_cidr
 }
 
+module "security-group" {
+  source = "./modules/security-group"
+  vpc_id = module.vpc.vpc_id
+}
 
 module "nat" {
   source        = "./modules/nat"
